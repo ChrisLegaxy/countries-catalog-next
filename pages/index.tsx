@@ -2,7 +2,7 @@ import _ from "lodash";
 import classNames from "classnames";
 // import { useQuery } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
-import { Montserrat_Alternates } from "@next/font/google";
+// import { Montserrat_Alternates } from "@next/font/google";
 import Image from "next/image";
 
 import { Country } from "../interfaces/country";
@@ -11,9 +11,9 @@ import countryStyle from "../styles/country.module.css";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
-const font = Montserrat_Alternates({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
+// const font = Montserrat_Alternates({
+//   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+// });
 
 export async function getStaticProps() {
   const res = await fetch("https://restcountries.com/v3.1/all");
@@ -118,6 +118,7 @@ export default function CountriesPage({
       setCountries(savedCountries);
     }
 
+    setCurrentPage(1);
     setOrderNameBy(undefined);
   }, [searchCriteria, savedCountries]);
 
@@ -159,7 +160,7 @@ export default function CountriesPage({
   };
 
   return (
-    <main className={classNames(font.className, "container mx-auto sm:px-12")}>
+    <main className={classNames("container mx-auto sm:px-12")}>
       <header>
         <div className="px-4">
           <h1 className="text-4xl font-bold mt-10 inline-block">
@@ -314,7 +315,7 @@ export default function CountriesPage({
       <Transition appear show={isDialogOpen} as={Fragment}>
         <Dialog
           as="div"
-          className={classNames(font.className, "relative z-10")}
+          className={classNames("relative z-10")}
           onClose={() => setIsDialogOpen(false)}
         >
           <Transition.Child

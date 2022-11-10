@@ -2,11 +2,11 @@
 const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
-  experimental: {
-    fontLoaders: [
-      { loader: '@next/font/google', options: { subsets: ['latin'] } },
-    ],
-  },
+  // experimental: {
+  //   fontLoaders: [
+  //     { loader: '@next/font/google', options: { subsets: ['latin'] } },
+  //   ],
+  // },
   images: {
     remotePatterns: [
       {
